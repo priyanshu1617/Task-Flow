@@ -31,11 +31,11 @@ body {
 }
 
 body.bg-intro {
-  background-image: url('../assets/intro_bg.jpg');
+  background-image: url('../assets/isometric_bg.jpg');
 }
 
 body.bg-login {
-  background-image: url('../assets/login_bg.jpg');
+  background-image: url('../assets/isometric_bg.jpg');
 }
 
 a {
