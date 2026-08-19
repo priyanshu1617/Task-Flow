@@ -37,7 +37,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // Set session token
         localStorage.setItem('isLoggedIn', 'true');
         
-        window.location.href = 'dashboard.html';
+        window.location.replace('dashboard.html');
       } else {
         // Failure: Show error
         errorMsg.style.display = 'block';

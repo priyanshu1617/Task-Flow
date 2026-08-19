@@ -42,7 +42,7 @@ const app = {
     if (logoutBtn) {
       logoutBtn.addEventListener('click', () => {
         localStorage.removeItem('isLoggedIn');
-        window.location.replace('login.html');
+        window.location.replace('index.html');
       });
     }
 
