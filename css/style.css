@@ -167,7 +167,12 @@ input, textarea, select {
   box-shadow: var(--shadow-sm);
   border: 1px solid var(--border-color);
   padding: 24px;
-  transition: background-color var(--transition-normal), border-color var(--transition-normal);
+  transition: all var(--transition-normal);
+}
+
+.card:hover {
+  transform: scale(1.02);
+  box-shadow: var(--shadow-md);
 }
 
 .badge {

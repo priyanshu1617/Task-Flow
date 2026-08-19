@@ -339,6 +339,7 @@
 .task-item:hover {
   border-color: var(--primary-color);
   box-shadow: var(--shadow-md);
+  transform: scale(1.02);
 }
 
 .task-item.completed {
