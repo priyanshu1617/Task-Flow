@@ -20,7 +20,6 @@
 body {
   font-family: 'Outfit', sans-serif;
   background-color: var(--landing-bg);
-  background-image: url('../assets/landing_bg.jpg');
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
@@ -29,6 +28,14 @@ body {
   display: flex;
   flex-direction: column;
   overflow-x: hidden;
+}
+
+body.bg-intro {
+  background-image: url('../assets/intro_bg.jpg');
+}
+
+body.bg-login {
+  background-image: url('../assets/login_bg.jpg');
 }
 
 a {
