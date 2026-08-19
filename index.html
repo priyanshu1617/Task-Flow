@@ -18,6 +18,7 @@
         <div>
           <h1>Daily Flow</h1>
           <p id="current-date">Today</p>
+          <div id="digital-clock" class="digital-clock">00:00:00</div>
         </div>
         <button id="theme-toggle" class="icon-btn" aria-label="Toggle theme">
           <svg id="theme-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-moon"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
@@ -25,6 +26,19 @@
       </header>
 
       <main>
+        <!-- Focus Timer Section -->
+        <section class="glass-card timer-section">
+          <h2>Focus Timer</h2>
+          <div class="timer-display">
+            <input type="number" id="timer-hours" value="00" min="0" max="99" />:<input type="number" id="timer-minutes" value="00" min="0" max="59" />:<input type="number" id="timer-seconds" value="00" min="0" max="59" />
+          </div>
+          <div class="timer-controls">
+            <button id="timer-start" class="btn primary-btn">Start</button>
+            <button id="timer-pause" class="btn">Pause</button>
+            <button id="timer-reset" class="btn">Reset</button>
+          </div>
+        </section>
+
         <!-- Add Task Section -->
         <section class="glass-card add-task-section">
           <h2>Add New Task</h2>

@@ -399,3 +399,86 @@ input[type="time"]:focus {
   from { opacity: 1; }
   to { opacity: 0; }
 }
+
+/* Clock Styles */
+.digital-clock {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--primary-color);
+  margin-top: 5px;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 2px;
+}
+
+/* Timer Styles */
+.timer-section {
+  text-align: center;
+}
+
+.timer-display {
+  font-size: 5rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 20px 0;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 4px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.timer-display input {
+  background: transparent;
+  border: none;
+  color: inherit;
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  width: 2ch;
+  text-align: center;
+  outline: none;
+  -moz-appearance: textfield;
+  padding: 0;
+  margin: 0;
+  transition: opacity 0.3s ease;
+}
+
+.timer-display input:focus {
+  border-bottom: 2px solid var(--primary-color);
+  opacity: 0.8;
+}
+
+.timer-display input[readonly] {
+  cursor: default;
+}
+
+.timer-display input::-webkit-outer-spin-button,
+.timer-display input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.timer-controls {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.timer-controls .btn {
+  background: var(--item-bg);
+  border: 1px solid var(--glass-border);
+  color: var(--text-primary);
+  min-width: 100px;
+}
+
+.timer-controls .primary-btn {
+  background: var(--primary-color);
+  color: white;
+}
+
+.timer-controls .btn:hover {
+  background: var(--primary-hover);
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(108, 92, 231, 0.4);
+}

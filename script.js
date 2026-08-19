@@ -18,6 +18,15 @@ const themeToggle = document.getElementById('theme-toggle');
 const themeIcon = document.getElementById('theme-icon');
 const currentDateEl = document.getElementById('current-date');
 const toastContainer = document.getElementById('toast-container');
+const digitalClockEl = document.getElementById('digital-clock');
+
+// --- Timer Elements ---
+const timerHoursEl = document.getElementById('timer-hours');
+const timerMinutesEl = document.getElementById('timer-minutes');
+const timerSecondsEl = document.getElementById('timer-seconds');
+const timerStartBtn = document.getElementById('timer-start');
+const timerPauseBtn = document.getElementById('timer-pause');
+const timerResetBtn = document.getElementById('timer-reset');
 
 // --- Initialization ---
 function init() {
@@ -38,6 +47,10 @@ function init() {
 
   // Start Reminder Loop (runs every 10 seconds)
   setInterval(checkReminders, 10000);
+
+  // Initialize Clock and Timer
+  startClock();
+  updateTimerDisplay();
 }
 
 // --- Theme Management ---
@@ -217,6 +230,104 @@ function sendBrowserNotification(taskName) {
     });
   }
 }
+
+// Boot up is moved to the bottom
+
+// --- Clock and Timer ---
+function startClock() {
+  function updateClock() {
+    const now = new Date();
+    digitalClockEl.textContent = now.toLocaleTimeString([], { hour12: false });
+  }
+  updateClock();
+  setInterval(updateClock, 1000);
+}
+
+let timerInterval;
+let timerSeconds = 0;
+let initialTimerSeconds = 0;
+let isTimerRunning = false;
+
+function updateTimerDisplay() {
+  const hrs = Math.floor(timerSeconds / 3600);
+  const mins = Math.floor((timerSeconds % 3600) / 60);
+  const secs = timerSeconds % 60;
+  timerHoursEl.value = hrs.toString().padStart(2, '0');
+  timerMinutesEl.value = mins.toString().padStart(2, '0');
+  timerSecondsEl.value = secs.toString().padStart(2, '0');
+}
+
+function handleTimeInput() {
+  let h = parseInt(timerHoursEl.value) || 0;
+  let m = parseInt(timerMinutesEl.value) || 0;
+  let s = parseInt(timerSecondsEl.value) || 0;
+  if(h < 0) h = 0;
+  if(m < 0) m = 0;
+  if(s < 0) s = 0;
+  if(m > 59) m = 59;
+  if(s > 59) s = 59;
+  
+  timerHoursEl.value = h.toString().padStart(2, '0');
+  timerMinutesEl.value = m.toString().padStart(2, '0');
+  timerSecondsEl.value = s.toString().padStart(2, '0');
+  
+  timerSeconds = h * 3600 + m * 60 + s;
+  initialTimerSeconds = timerSeconds;
+}
+
+timerHoursEl.addEventListener('change', handleTimeInput);
+timerMinutesEl.addEventListener('change', handleTimeInput);
+timerSecondsEl.addEventListener('change', handleTimeInput);
+
+function startTimer() {
+  if (isTimerRunning) return;
+  
+  // Make sure we have the latest input
+  handleTimeInput();
+  if (timerSeconds <= 0) return;
+
+  isTimerRunning = true;
+  timerHoursEl.readOnly = true;
+  timerMinutesEl.readOnly = true;
+  timerSecondsEl.readOnly = true;
+  
+  timerInterval = setInterval(() => {
+    if (timerSeconds > 0) {
+      timerSeconds--;
+      updateTimerDisplay();
+    } else {
+      clearInterval(timerInterval);
+      isTimerRunning = false;
+      timerHoursEl.readOnly = false;
+      timerMinutesEl.readOnly = false;
+      timerSecondsEl.readOnly = false;
+      showToast('Focus session completed!', 'Focus Timer');
+      sendBrowserNotification('Focus session completed!');
+    }
+  }, 1000);
+}
+
+function pauseTimer() {
+  clearInterval(timerInterval);
+  isTimerRunning = false;
+  timerHoursEl.readOnly = false;
+  timerMinutesEl.readOnly = false;
+  timerSecondsEl.readOnly = false;
+}
+
+function resetTimer() {
+  clearInterval(timerInterval);
+  isTimerRunning = false;
+  timerHoursEl.readOnly = false;
+  timerMinutesEl.readOnly = false;
+  timerSecondsEl.readOnly = false;
+  timerSeconds = initialTimerSeconds;
+  updateTimerDisplay();
+}
+
+timerStartBtn.addEventListener('click', startTimer);
+timerPauseBtn.addEventListener('click', pauseTimer);
+timerResetBtn.addEventListener('click', resetTimer);
 
 // Boot up
 init();
