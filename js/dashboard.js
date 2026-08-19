@@ -102,7 +102,7 @@ const Dashboard = {
     container.innerHTML = '';
     
     if (filteredTasks.length === 0) {
-      container.innerHTML = `<div class="text-muted" style="text-align:center; padding: 40px;">No tasks found. Relax or add a new one!</div>`;
+      container.innerHTML = `<div class="empty-state-text" style="text-align:center; padding: 40px;">No tasks found. Relax or add a new one!</div>`;
       return;
     }
 

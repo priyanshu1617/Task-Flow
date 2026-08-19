@@ -847,3 +847,15 @@ input:checked + .slider:before { transform: translateX(20px); }
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
 }
+
+.quote-footer span,
+.empty-state-text,
+.powered-by {
+  color: var(--text-muted);
+}
+
+[data-theme="dark"] .quote-footer span,
+[data-theme="dark"] .empty-state-text,
+[data-theme="dark"] .powered-by {
+  color: #ffffff !important;
+}
