@@ -1,14 +1,16 @@
-# Daily Flow - Routine Tracker
+# Daily Flow - Task Tracker
 
-A beautiful and modern daily checklist application built to help you organize your daily life from morning to night.
+A beautiful and modern daily checklist application built to help you organize your life with unparalleled focus and aesthetic appeal. 
 
 ## Features
 
-- **Premium Glassmorphism UI**: A sleek, modern design with smooth animations and dynamic backgrounds.
+- **Premium Glassmorphism UI**: A sleek, translucent design with soft blurs over stunning dynamic scenic backgrounds. The background changes between a bright, sunny landscape for Light Mode and a serene, starry night for Dark Mode.
 - **Dark & Light Mode**: Toggle between light and dark themes effortlessly. The app remembers your preference.
-- **Data Persistence**: All your tasks and routines are saved securely in your browser's local storage.
-- **Task Management**: Add, complete, and delete tasks. Completed tasks are moved to a separate history list to help you track your progress.
-- **Reminders**: Set specific times and reminder alerts for your important tasks. You'll receive in-app toast notifications and browser notifications when it's time!
+- **Dynamic Categories**: Create your own customized categories with auto-assigned distinct colors to keep your tasks organized. Easily delete categories you no longer need.
+- **Integrated Focus Timer**: A beautiful, built-in digital timer perfectly fitted into the sidebar. Set your focus hours, minutes, and seconds to keep track of deep work sessions. Features smart input auto-formatting and rollover (e.g., 90 minutes automatically formats to 1 hour, 30 minutes).
+- **Data Persistence**: All your tasks, custom categories, and theme settings are saved securely in your browser's local storage.
+- **Task Management**: Add, complete, and delete tasks. Completed tasks can be filtered out or managed across multiple dynamic categories.
+- **Reminders**: Set specific times and reminder alerts for your important tasks. You'll receive in-app toast notifications.
 
 ## Live Demo
 
@@ -16,6 +18,6 @@ A beautiful and modern daily checklist application built to help you organize yo
 
 ## Tech Stack
 
-- HTML5
-- CSS3 (Vanilla, Custom Variables, Glassmorphism)
-- JavaScript (Vanilla, LocalStorage API, Notification API)
+- **HTML5**
+- **CSS3** (Vanilla, Custom Variables, Advanced Glassmorphism, Responsive Grid/Flexbox)
+- **JavaScript** (Vanilla, LocalStorage API, Modular Architecture)
