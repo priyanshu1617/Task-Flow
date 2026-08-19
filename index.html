@@ -1,25 +1,82 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Task Tracker</title>
+    <meta name="description" content="A beautiful daily checklist and routine tracker." />
+    <title>Daily Flow - Routine Tracker</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <div class="container">
-      <h1>Task Tracker</h1>
-      <ul id="tasks">
-        <li>Task 1</li>
-        <li>Task 2</li>
-        <li>Task 3</li>
-        <li>Task 4</li>
-        <li>Task 5</li>
-        <li>Task 6</li>
-        <li>Task 7</li>
-        <li>Task 8</li>
-      </ul>
+    <!-- Background Elements -->
+    <div class="bg-shape shape-1"></div>
+    <div class="bg-shape shape-2"></div>
+    
+    <div class="app-container">
+      <header>
+        <div>
+          <h1>Daily Flow</h1>
+          <p id="current-date">Today</p>
+        </div>
+        <button id="theme-toggle" class="icon-btn" aria-label="Toggle theme">
+          <svg id="theme-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-moon"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+        </button>
+      </header>
+
+      <main>
+        <!-- Add Task Section -->
+        <section class="glass-card add-task-section">
+          <h2>Add New Task</h2>
+          <form id="task-form">
+            <div class="input-group">
+              <input type="text" id="task-name" placeholder="What do you need to do?" required autocomplete="off" />
+            </div>
+            <div class="input-row">
+              <div class="input-group">
+                <input type="time" id="task-time" required />
+              </div>
+              <div class="input-group checkbox-group">
+                <input type="checkbox" id="task-important" />
+                <label for="task-important">Important</label>
+              </div>
+              <div class="input-group checkbox-group">
+                <input type="checkbox" id="task-reminder" />
+                <label for="task-reminder">Reminder</label>
+              </div>
+              <button type="submit" class="btn primary-btn">Add</button>
+            </div>
+          </form>
+        </section>
+
+        <div class="lists-container">
+          <!-- Active Tasks -->
+          <section class="glass-card list-section">
+            <div class="section-header">
+              <h2>Today's Routine</h2>
+              <span id="active-count" class="badge">0</span>
+            </div>
+            <ul id="active-tasks" class="task-list">
+              <!-- Tasks will be injected here -->
+            </ul>
+          </section>
+
+          <!-- History / Completed Tasks -->
+          <section class="glass-card list-section history-section">
+            <div class="section-header">
+              <h2>Completed</h2>
+              <span id="completed-count" class="badge">0</span>
+            </div>
+            <ul id="completed-tasks" class="task-list">
+              <!-- Tasks will be injected here -->
+            </ul>
+          </section>
+        </div>
+      </main>
     </div>
+
+    <!-- Toast Notification Container -->
+    <div id="toast-container"></div>
 
     <script src="script.js"></script>
   </body>
