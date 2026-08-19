@@ -1,358 +1,64 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="light">
+<html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>TaskFlow - Dashboard</title>
-  
-  <!-- CSS -->
-  <link rel="stylesheet" href="css/style.css" />
-  <link rel="stylesheet" href="css/dashboard.css" />
-  <link rel="stylesheet" href="css/responsive.css" />
-  
-  <!-- Icons (Phosphor Icons) -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TaskFlow - Intro</title>
+  <!-- Phosphor Icons -->
   <script src="https://unpkg.com/@phosphor-icons/web"></script>
+  <!-- Landing specific styles -->
+  <link rel="stylesheet" href="css/landing.css">
 </head>
-<body>
-
-  <div class="app-wrapper">
-    <!-- 1. LEFT SIDEBAR -->
-    <aside class="sidebar">
-      <div class="brand">
-        <div class="brand-icon">
-          <i class="ph-bold ph-check-square"></i>
-        </div>
-        TaskFlow
+<body class="bg-intro">
+  
+  <main class="intro-container">
+    <div class="logo-container">
+      <div class="logo-icon">
+        <i class="ph-fill ph-check-square-offset"></i>
       </div>
-
-      <div class="nav-section">
-        <div class="nav-list">
-          <div class="nav-item active" data-filter="all">
-            <div class="nav-item-left">
-              <i class="ph ph-squares-four"></i>
-              <span>Dashboard</span>
-            </div>
-          </div>
-          <div class="nav-item" data-filter="tasks">
-            <div class="nav-item-left">
-              <i class="ph ph-list-dashes"></i>
-              <span>All Tasks</span>
-            </div>
-          </div>
-          <div class="nav-item" data-filter="today">
-            <div class="nav-item-left">
-              <i class="ph ph-calendar-blank"></i>
-              <span>Today</span>
-            </div>
-            <span class="nav-badge" id="badge-today">0</span>
-          </div>
-          <div class="nav-item" data-filter="upcoming">
-            <div class="nav-item-left">
-              <i class="ph ph-clock"></i>
-              <span>Upcoming</span>
-            </div>
-            <span class="nav-badge" id="badge-upcoming">0</span>
-          </div>
-          <div class="nav-item" data-filter="completed">
-            <div class="nav-item-left">
-              <i class="ph ph-check-circle"></i>
-              <span>Completed</span>
-            </div>
-            <span class="nav-badge" id="badge-completed">0</span>
-          </div>
-          <div class="nav-item" data-filter="important">
-            <div class="nav-item-left">
-              <i class="ph ph-star"></i>
-              <span>Important</span>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="nav-section">
-        <h4 class="nav-section-title">Categories</h4>
-        <div class="nav-list" id="category-list">
-          <!-- Categories injected via JS -->
-        </div>
-        <div class="add-category-btn">
-          <i class="ph ph-plus"></i> Add Category
-        </div>
-      </div>
-      <div class="sidebar-timer card" style="display: flex; flex-direction: column; gap: 12px; padding: 16px; margin-top: auto; margin-bottom: 16px;">
-        <div style="font-size: 0.85rem; font-weight: 600; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px; text-align: center;">Focus Timer</div>
-        <div class="timer-section" style="flex-direction: column; gap: 12px;">
-          <div class="timer-inputs" style="justify-content: center;">
-            <div class="timer-input-group">
-              <input type="number" id="timer-h" value="00" min="0"> <span style="font-size: 0.75rem;">h</span>
-            </div>
-            <div class="timer-input-group">
-              <input type="number" id="timer-m" value="00" min="0"> <span style="font-size: 0.75rem;">m</span>
-            </div>
-            <div class="timer-input-group">
-              <input type="number" id="timer-s" value="00" min="0"> <span style="font-size: 0.75rem;">s</span>
-            </div>
-          </div>
-          <div class="timer-display" id="timer-display" style="display: none; font-size: 1.8rem; width: 100%; text-align: center;">
-            00:00:00
-          </div>
-          <div class="timer-actions" style="justify-content: center; display: flex; gap: 8px;">
-            <button class="icon-btn" id="timer-start" aria-label="Start Timer" style="background: var(--bg-main); width: 36px; height: 36px; border-radius: 50%;"><i class="ph-fill ph-play"></i></button>
-            <button class="icon-btn" id="timer-pause" style="display: none; background: var(--bg-main); width: 36px; height: 36px; border-radius: 50%;" aria-label="Pause Timer"><i class="ph-fill ph-pause"></i></button>
-            <button class="icon-btn" id="timer-reset" aria-label="Reset Timer" style="background: var(--bg-main); width: 36px; height: 36px; border-radius: 50%;"><i class="ph-fill ph-arrow-counter-clockwise"></i></button>
-          </div>
-        </div>
-      </div>
-      <div class="user-profile">
-        <img src="https://ui-avatars.com/api/?name=Priyanshu&background=6c5ce7&color=fff" alt="User Avatar" class="avatar" />
-        <div class="user-info">
-          <h4>Priyanshu</h4>
-          <p>priyanshu@example.com</p>
-        </div>
-        <i class="ph ph-dots-three-vertical text-muted" style="margin-left: auto;"></i>
-      </div>
-    </aside>
-
-    <!-- 2. MAIN CONTENT -->
-    <main class="main-content">
-      <header class="top-header">
-        <div class="greeting">
-          <h2>Good evening, Priyanshu!</h2>
-          <p>Let's get things done.</p>
-          <div class="clock-display" id="live-clock" style="font-size: 1.1rem; margin-top: 4px; color: var(--text-secondary);">
-            12:00:00 PM
-          </div>
-        </div>
-        <div class="header-actions">
-          <div class="search-bar">
-            <i class="ph ph-magnifying-glass"></i>
-            <input type="text" id="search-input" placeholder="Search tasks..." />
-            <span class="shortcut-hint">Ctrl /</span>
-          </div>
-          <button class="icon-btn" id="header-theme-toggle" aria-label="Toggle Theme">
-            <i class="ph ph-moon" id="header-theme-icon"></i>
-          </button>
-          <button class="btn btn-primary" id="open-add-modal-btn">
-            <i class="ph ph-plus"></i> Add Task
-          </button>
-        </div>
-      </header>
-
-      <section class="stats-grid">
-        <div class="card stat-card">
-          <div class="stat-icon blue">
-            <i class="ph ph-clipboard-text"></i>
-          </div>
-          <div class="stat-content">
-            <h3>Total Tasks</h3>
-            <div class="value" id="stat-total">0</div>
-            <div class="desc">All time tasks</div>
-          </div>
-        </div>
-        <div class="card stat-card">
-          <div class="stat-icon green">
-            <i class="ph ph-check-circle"></i>
-          </div>
-          <div class="stat-content">
-            <h3>Completed</h3>
-            <div class="value" id="stat-completed">0</div>
-            <div class="desc success" id="stat-completed-percent">0% done</div>
-          </div>
-        </div>
-        <div class="card stat-card">
-          <div class="stat-icon orange">
-            <i class="ph ph-clock"></i>
-          </div>
-          <div class="stat-content">
-            <h3>Pending</h3>
-            <div class="value" id="stat-pending">0</div>
-            <div class="desc">Tasks remaining</div>
-          </div>
-        </div>
-        <div class="card stat-card">
-          <div class="stat-icon red">
-            <i class="ph ph-calendar-x"></i>
-          </div>
-          <div class="stat-content">
-            <h3>Overdue</h3>
-            <div class="value" id="stat-overdue">0</div>
-            <div class="desc danger">Tasks overdue</div>
-          </div>
-        </div>
-        <div class="card stat-card">
-          <div class="stat-icon purple">
-            <i class="ph ph-star"></i>
-          </div>
-          <div class="stat-content">
-            <h3>High Priority</h3>
-            <div class="value" id="stat-priority">0</div>
-            <div class="desc">Important tasks</div>
-          </div>
-        </div>
-      </section>
-
-      <section class="task-list-section">
-        <div class="task-list-header">
-          <h3 id="current-view-title">Today's Tasks <span class="badge" id="current-view-count">0</span></h3>
-          <div class="task-list-actions">
-            <button class="btn btn-outline text-sm">
-              <i class="ph ph-funnel"></i> Filter
-            </button>
-            <button class="btn btn-outline text-sm">
-              <i class="ph ph-sort-ascending"></i> Sort
-            </button>
-            <button class="icon-btn" style="margin-left: 8px;">
-              <i class="ph ph-dots-three-vertical"></i>
-            </button>
-          </div>
-        </div>
-
-        <div class="task-items" id="task-list-container">
-          <!-- Tasks injected via JS -->
-        </div>
-      </section>
-
-      <div class="bottom-widgets">
-
-
-        <div class="quote-footer">
-          <i class="ph-fill ph-quotes" style="color: var(--primary-color);"></i>
-          <span>The secret of getting ahead is getting started. - Mark Twain</span>
-          <i class="ph-fill ph-quotes" style="color: var(--primary-color); transform: scaleX(-1);"></i>
-        </div>
-        <div class="powered-by" style="text-align: center; font-size: 0.75rem; margin-top: 8px;">
-          Powered by Priyanshu Chandra
-        </div>
-      </div>
-    </main>
-
-    <!-- 3. RIGHT SIDEBAR -->
-    <aside class="right-sidebar">
-      <!-- Calendar Widget -->
-      <div class="card calendar-widget">
-        <div class="widget-header">
-          <h3>Calendar</h3>
-          <div class="flex items-center gap-4 text-muted">
-            <i class="ph ph-caret-left" style="cursor: pointer;"></i>
-            <span class="text-sm font-semibold text-primary" style="color: var(--text-primary)" id="calendar-month">August 2026</span>
-            <i class="ph ph-caret-right" style="cursor: pointer;"></i>
-          </div>
-        </div>
-        <div class="calendar-grid">
-          <div class="calendar-day-header">SUN</div>
-          <div class="calendar-day-header">MON</div>
-          <div class="calendar-day-header">TUE</div>
-          <div class="calendar-day-header">WED</div>
-          <div class="calendar-day-header">THU</div>
-          <div class="calendar-day-header">FRI</div>
-          <div class="calendar-day-header">SAT</div>
-          <!-- Days injected via JS -->
-        </div>
-      </div>
-
-      <!-- Streak Widget -->
-      <div class="card streak-widget" style="display: flex; justify-content: space-between; align-items: center; padding: 16px 20px;">
-        <div class="streak-info">
-          <h3 style="font-size: 1.1rem; font-weight: 700; margin-bottom: 4px;">Current Streak</h3>
-          <p style="font-size: 0.8rem; color: var(--text-muted);"><span id="streak-count" style="font-weight: 700; color: var(--text-primary); font-size: 1.2rem;">0</span> days</p>
-        </div>
-        <div class="fire-icon-container">
-          <i class="ph-fill ph-fire fire-icon no-streak" id="fire-icon"></i>
-        </div>
-      </div>
-
-      <!-- Upcoming Widget -->
-      <div class="card upcoming-widget">
-        <div class="widget-header">
-          <h3>Upcoming Tasks</h3>
-          <span class="view-all">View all</span>
-        </div>
-        <div class="upcoming-list" id="upcoming-widget-list">
-          <!-- Upcoming tasks injected via JS -->
-        </div>
-      </div>
-
-      <!-- Progress Widget -->
-      <div class="card progress-widget">
-        <div class="widget-header">
-          <h3>Task Completion</h3>
-          <span class="view-all text-muted" style="color:var(--primary-color)">This month</span>
-        </div>
-        <div class="progress-container">
-          <div class="progress-circle">
-            <svg width="70" height="70" viewBox="0 0 70 70">
-              <circle class="progress-bg" cx="35" cy="35" r="30"></circle>
-              <circle class="progress-value" cx="35" cy="35" r="30" id="progress-circle-fill"></circle>
-            </svg>
-            <div class="progress-text" id="progress-text-percent">0%</div>
-          </div>
-          <div class="progress-info">
-            <h4>Great Progress!</h4>
-            <p>You have completed <span id="progress-completed">0</span> out of <span id="progress-total">0</span> tasks this month.</p>
-          </div>
-        </div>
-      </div>
-    </aside>
-  </div>
-
-  <!-- ADD/EDIT TASK MODAL -->
-  <div class="modal-overlay" id="task-modal">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h2 id="modal-title">Add New Task</h2>
-        <button class="btn-icon" id="close-modal-btn">
-          <i class="ph ph-x"></i>
-        </button>
-      </div>
-      <form id="task-form">
-        <input type="hidden" id="task-id" />
-        
-        <div class="form-group">
-          <label>Task Title</label>
-          <input type="text" class="form-control" id="task-title" placeholder="What needs to be done?" required />
-        </div>
-        
-        <div class="form-row">
-          <div class="form-group">
-            <label>Category</label>
-            <select id="task-category" class="form-control" required>
-              <!-- Options injected via JS -->
-            </select>
-          </div>
-          <div class="form-group">
-            <label>Priority</label>
-            <select class="form-control" id="task-priority">
-              <option value="Low">Low</option>
-              <option value="Medium">Medium</option>
-              <option value="High">High</option>
-            </select>
-          </div>
-        </div>
-
-        <div class="form-row">
-          <div class="form-group">
-            <label>Due Date</label>
-            <input type="date" class="form-control" id="task-date" required />
-          </div>
-          <div class="form-group">
-            <label>Due Time</label>
-            <input type="time" class="form-control" id="task-time" />
-          </div>
-        </div>
-
-        <div class="modal-footer">
-          <button type="button" class="btn btn-outline" id="cancel-modal-btn">Cancel</button>
-          <button type="submit" class="btn btn-primary" id="save-task-btn">Save Task</button>
-        </div>
-      </form>
+      <h1 class="intro-title">
+        <span class="gradient-text">TASK</span>FLOW
+      </h1>
+      <h2 class="intro-subtitle">Plan better. Get more done.</h2>
+      <p class="intro-desc">
+        A simple and powerful task tracker to organize your day and focus on what matters.
+      </p>
     </div>
+
+    <div class="intro-actions">
+      <a href="login.html" class="btn-primary">
+        <i class="ph ph-rocket-launch"></i> Get Started
+      </a>
+    </div>
+
+    <div class="features-row">
+      <div class="feature-item">
+        <i class="ph-fill ph-lightning feature-icon"></i>
+        <div class="feature-text">
+          <h4>Simple</h4>
+          <p>Easy to use</p>
+        </div>
+      </div>
+      <div class="feature-item" style="border-left: 1px solid var(--landing-card-border); padding-left: 48px;">
+        <i class="ph-fill ph-clock feature-icon"></i>
+        <div class="feature-text">
+          <h4>Fast</h4>
+          <p>Save time</p>
+        </div>
+      </div>
+      <div class="feature-item" style="border-left: 1px solid var(--landing-card-border); padding-left: 48px;">
+        <i class="ph-fill ph-shield-check feature-icon"></i>
+        <div class="feature-text">
+          <h4>Personal</h4>
+          <p>Your data, your way</p>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <div style="text-align: center; color: var(--landing-text-muted); font-size: 0.9rem; padding: 24px;">
+    Organize. Focus. Achieve. <i class="ph-fill ph-heart" style="color: var(--landing-primary);"></i>
   </div>
 
-  <!-- JS Modules -->
-  <script src="js/storage.js"></script>
-  <script src="js/tasks.js"></script>
-  <script src="js/calendar.js"></script>
-  <script src="js/dashboard.js"></script>
-  <script src="js/timer.js"></script>
-  <script src="js/app.js"></script>
 </body>
 </html>

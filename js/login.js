@@ -37,7 +37,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // Optional: you could save a session token here if you wanted, 
         // e.g., localStorage.setItem('isLoggedIn', 'true');
         
-        window.location.href = 'index.html';
+        window.location.href = 'dashboard.html';
       } else {
         // Failure: Show error
         errorMsg.style.display = 'block';
