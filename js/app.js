@@ -37,6 +37,14 @@ const app = {
   },
 
   bindEvents: () => {
+    // Logout Button
+    const logoutBtn = document.getElementById('logout-btn');
+    if (logoutBtn) {
+      logoutBtn.addEventListener('click', () => {
+        window.location.href = 'login.html';
+      });
+    }
+
     // Theme Toggle (Sidebar)
     const themeToggle = document.getElementById('theme-toggle');
     if (themeToggle) {
