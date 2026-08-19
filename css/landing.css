@@ -31,7 +31,7 @@ body {
 }
 
 body.bg-intro {
-  background-image: url('../assets/isometric_bg.jpg');
+  background-image: url('../assets/intro_bg_hills.jpg');
 }
 
 body.bg-login {
