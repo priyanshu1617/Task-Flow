@@ -1,0 +1,77 @@
+/* Tablet Layout (Hide right sidebar, make it an overlay or stack) */
+@media (max-width: 1200px) {
+  .app-wrapper {
+    grid-template-columns: 240px 1fr;
+  }
+  
+  .right-sidebar {
+    display: none; /* In a real app we might show it via a toggle */
+  }
+  
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Mobile Layout */
+@media (max-width: 768px) {
+  .app-wrapper {
+    grid-template-columns: 1fr;
+  }
+  
+  .sidebar {
+    position: fixed;
+    z-index: 100;
+    transform: translateX(-100%);
+    transition: transform var(--transition-normal);
+  }
+  
+  .sidebar.open {
+    transform: translateX(0);
+  }
+  
+  .main-content {
+    padding: 20px;
+  }
+  
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .top-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+  
+  .header-actions {
+    width: 100%;
+    justify-content: space-between;
+  }
+  
+  .search-bar {
+    width: 100%;
+  }
+  
+  .task-list-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+  
+  .task-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+  
+  .task-item-right {
+    width: 100%;
+    justify-content: flex-end;
+  }
+  
+  /* Form inside modal */
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+}
