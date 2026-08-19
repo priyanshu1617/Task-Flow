@@ -110,11 +110,10 @@
         </div>
       </div>
       <div class="sidebar-bottom-actions" style="margin-top: auto; display: flex; flex-direction: column; gap: 8px;">
-        <div class="user-profile" style="margin-top: 0;">
+        <div class="user-profile" id="profile-trigger" style="margin-top: 0;">
           <img src="https://ui-avatars.com/api/?name=Priyanshu&background=6c5ce7&color=fff" alt="User Avatar" class="avatar" />
           <div class="user-info">
             <h4>Priyanshu</h4>
-            <p>priyanshu@example.com</p>
           </div>
         </div>
         <button id="logout-btn" class="btn" style="width: 100%; justify-content: center; background: rgba(255, 59, 48, 0.1); color: #ff3b30; border: 1px solid rgba(255, 59, 48, 0.2);">
@@ -355,6 +354,33 @@
           <button type="submit" class="btn btn-primary" id="save-task-btn">Save Task</button>
         </div>
       </form>
+    </div>
+  </div>
+
+  <!-- Profile Modal -->
+  <div class="modal-overlay" id="profile-modal">
+    <div class="modal-content" style="max-width: 1000px; height: 90vh; display: flex; flex-direction: column;">
+      <div class="modal-header">
+        <h3 id="profile-modal-title">Your Profile</h3>
+        <button class="icon-btn close-modal" id="close-profile-modal-btn">
+          <i class="ph ph-x"></i>
+        </button>
+      </div>
+      
+      <div class="profile-modal-body" style="flex: 1; display: flex; flex-direction: column;">
+        <!-- Dynamic Header -->
+        <div style="display: flex; align-items: center; gap: 16px; margin-bottom: 24px;">
+          <img src="https://ui-avatars.com/api/?name=Priyanshu&background=6c5ce7&color=fff" alt="User Avatar" class="avatar" style="width: 64px; height: 64px;" id="profile-modal-avatar" />
+          <div class="user-info">
+            <h4 id="profile-modal-username" style="font-size: 1.2rem; font-weight: 700; margin: 0;">Priyanshu</h4>
+          </div>
+        </div>
+
+        <!-- Blank Space for Future Content -->
+        <div class="profile-blank-space" style="flex: 1; min-height: 500px; border: 1px dashed var(--border-color); border-radius: var(--radius-md); display: flex; align-items: center; justify-content: center; background: rgba(0,0,0,0.05); color: var(--text-muted);">
+          <span>[ Reserved for Future Stats & Integrations ]</span>
+        </div>
+      </div>
     </div>
   </div>
 

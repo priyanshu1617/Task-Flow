@@ -40,9 +40,46 @@ const app = {
     // Logout Button
     const logoutBtn = document.getElementById('logout-btn');
     if (logoutBtn) {
-      logoutBtn.addEventListener('click', () => {
+      logoutBtn.addEventListener('click', (e) => {
+        e.stopPropagation(); // Prevent opening profile modal if clicked inside
         localStorage.removeItem('isLoggedIn');
         window.location.replace('index.html');
+      });
+    }
+
+    // Profile Modal
+    const profileTrigger = document.getElementById('profile-trigger');
+    const profileModal = document.getElementById('profile-modal');
+    const closeProfileBtn = document.getElementById('close-profile-modal-btn');
+    const loggedInUsername = localStorage.getItem('username') || 'Priyanshu';
+
+    // Update Sidebar display
+    if (profileTrigger) {
+      const sidebarAvatar = profileTrigger.querySelector('.avatar');
+      const sidebarName = profileTrigger.querySelector('h4');
+      if (sidebarAvatar) sidebarAvatar.src = `https://ui-avatars.com/api/?name=${loggedInUsername}&background=6c5ce7&color=fff`;
+      if (sidebarName) sidebarName.textContent = loggedInUsername;
+    }
+
+    if (profileTrigger && profileModal) {
+      profileTrigger.addEventListener('click', () => {
+        profileModal.classList.add('active');
+        
+        // Dynamically update
+        const username = localStorage.getItem('username') || 'Priyanshu';
+        
+        document.getElementById('profile-modal-username').textContent = username;
+        document.getElementById('profile-modal-avatar').src = `https://ui-avatars.com/api/?name=${username}&background=6c5ce7&color=fff`;
+      });
+
+      closeProfileBtn.addEventListener('click', () => {
+        profileModal.classList.remove('active');
+      });
+
+      profileModal.addEventListener('click', (e) => {
+        if (e.target === profileModal) {
+          profileModal.classList.remove('active');
+        }
       });
     }
 

@@ -36,6 +36,7 @@ document.addEventListener('DOMContentLoaded', () => {
         
         // Set session token
         localStorage.setItem('isLoggedIn', 'true');
+        localStorage.setItem('username', username);
         
         window.location.replace('dashboard.html');
       } else {
