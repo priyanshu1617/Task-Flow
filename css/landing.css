@@ -1,0 +1,307 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --landing-bg: #0d0b1a;
+  --landing-card: rgba(255, 255, 255, 0.03);
+  --landing-card-border: rgba(255, 255, 255, 0.05);
+  --landing-primary: #8154ff;
+  --landing-primary-hover: #9c75ff;
+  --landing-text: #ffffff;
+  --landing-text-muted: #8b85a3;
+  --landing-gradient: linear-gradient(135deg, #6c41ec 0%, #9e75ff 100%);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Outfit', sans-serif;
+  background-color: var(--landing-bg);
+  background-image: url('../assets/landing_bg.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  color: var(--landing-text);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+}
+
+a {
+  text-decoration: none;
+  color: var(--landing-primary);
+  transition: color 0.2s;
+}
+a:hover {
+  color: var(--landing-primary-hover);
+}
+
+/* Glassmorphism Classes */
+.glass-card {
+  background: var(--landing-card);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--landing-card-border);
+  border-radius: 24px;
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+}
+
+.gradient-text {
+  background: var(--landing-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.btn-primary {
+  background: var(--landing-gradient);
+  color: white;
+  border: none;
+  padding: 16px 32px;
+  border-radius: 12px;
+  font-size: 1.1rem;
+  font-weight: 500;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  transition: transform 0.2s, box-shadow 0.2s;
+  width: 100%;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(108, 65, 236, 0.3);
+}
+
+.input-group {
+  margin-bottom: 24px;
+}
+.input-group label {
+  display: block;
+  font-size: 0.9rem;
+  margin-bottom: 8px;
+  color: var(--landing-text);
+  font-weight: 500;
+}
+.input-field {
+  width: 100%;
+  background: rgba(0,0,0,0.2);
+  border: 1px solid var(--landing-card-border);
+  padding: 14px 16px;
+  padding-left: 48px;
+  border-radius: 12px;
+  color: white;
+  font-family: inherit;
+  font-size: 1rem;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+.input-field:focus {
+  outline: none;
+  border-color: var(--landing-primary);
+  box-shadow: 0 0 0 3px rgba(108, 65, 236, 0.2);
+}
+.input-wrapper {
+  position: relative;
+}
+.input-icon {
+  position: absolute;
+  left: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--landing-text-muted);
+  font-size: 1.2rem;
+}
+
+/* Page Layouts */
+/* Intro Page */
+.intro-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  text-align: center;
+  padding: 40px 20px;
+}
+.logo-container {
+  margin-bottom: 24px;
+}
+.logo-icon {
+  font-size: 4rem;
+  color: var(--landing-primary);
+  background: rgba(129, 84, 255, 0.1);
+  padding: 24px;
+  border-radius: 24px;
+  margin-bottom: 24px;
+  display: inline-flex;
+}
+.intro-title {
+  font-size: 3.5rem;
+  font-weight: 700;
+  letter-spacing: -1px;
+  margin-bottom: 8px;
+}
+.intro-subtitle {
+  font-size: 1.5rem;
+  color: var(--landing-text-muted);
+  margin-bottom: 24px;
+}
+.intro-desc {
+  color: var(--landing-text-muted);
+  font-size: 1.1rem;
+  max-width: 500px;
+  line-height: 1.6;
+  margin-bottom: 48px;
+}
+.intro-actions {
+  width: 100%;
+  max-width: 400px;
+  margin-bottom: 64px;
+}
+.features-row {
+  display: flex;
+  gap: 48px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.feature-item {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.feature-icon {
+  font-size: 1.5rem;
+  color: var(--landing-primary);
+}
+.feature-text h4 {
+  font-size: 1.1rem;
+  margin-bottom: 4px;
+}
+.feature-text p {
+  font-size: 0.9rem;
+  color: var(--landing-text-muted);
+}
+
+/* Login Page */
+.login-container {
+  display: flex;
+  flex: 1;
+  min-height: 100vh;
+}
+.login-left {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 60px;
+}
+.login-left-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.login-logo {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 16px;
+}
+.login-logo i {
+  color: var(--landing-primary);
+  font-size: 3rem;
+  background: rgba(129, 84, 255, 0.1);
+  padding: 12px;
+  border-radius: 16px;
+}
+.login-quote {
+  margin-top: auto;
+  font-size: 1.2rem;
+  color: var(--landing-text-muted);
+  max-width: 300px;
+  line-height: 1.5;
+  border-left: 2px solid var(--landing-primary);
+  padding-left: 20px;
+}
+.login-right {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+  position: relative;
+}
+.login-card {
+  width: 100%;
+  max-width: 480px;
+  padding: 48px;
+}
+.login-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+.login-avatar {
+  font-size: 3rem;
+  color: var(--landing-primary);
+  width: 80px;
+  height: 80px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  border: 2px solid var(--landing-primary);
+  margin-bottom: 24px;
+}
+.login-header h2 {
+  font-size: 2rem;
+  margin-bottom: 8px;
+}
+.login-header p {
+  color: var(--landing-text-muted);
+}
+.form-error {
+  color: #ff4757;
+  font-size: 0.9rem;
+  text-align: center;
+  margin-bottom: 16px;
+  display: none;
+}
+.footer-text {
+  position: absolute;
+  bottom: 40px;
+  color: var(--landing-text-muted);
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+@media (max-width: 900px) {
+  .login-container {
+    flex-direction: column;
+  }
+  .login-left {
+    flex: none;
+    padding: 40px 20px;
+    align-items: center;
+    text-align: center;
+  }
+  .login-quote {
+    display: none;
+  }
+  .login-right {
+    padding: 20px;
+  }
+}
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
+  20%, 40%, 60%, 80% { transform: translateX(5px); }
+}

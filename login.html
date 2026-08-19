@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TaskFlow - Login</title>
+  <!-- Phosphor Icons -->
+  <script src="https://unpkg.com/@phosphor-icons/web"></script>
+  <!-- Landing specific styles -->
+  <link rel="stylesheet" href="css/landing.css">
+</head>
+<body>
+  
+  <main class="login-container">
+    <!-- Left Column: Branding -->
+    <div class="login-left">
+      <div class="login-left-content">
+        <a href="intro.html" class="login-logo" style="color: var(--landing-text);">
+          <i class="ph-fill ph-check-square-offset"></i>
+          <div>
+            <span class="gradient-text">TASK</span>FLOW
+            <div style="font-size: 1rem; color: var(--landing-text-muted); font-weight: 400; margin-top: 4px;">Plan better. Get more done.</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="login-quote">
+        <i class="ph-fill ph-quotes" style="color: var(--landing-primary);"></i>
+        Focus on progress, not perfection.
+      </div>
+    </div>
+
+    <!-- Right Column: Login Card -->
+    <div class="login-right">
+      <div class="glass-card login-card">
+        <div class="login-header">
+          <div class="login-avatar">
+            <i class="ph-fill ph-user"></i>
+          </div>
+          <h2>Welcome Back!</h2>
+          <p>Login to continue to your account</p>
+        </div>
+
+        <form id="login-form">
+          <div class="form-error" id="form-error">Invalid credentials. Please try again.</div>
+          
+          <div class="input-group">
+            <label for="username">Username</label>
+            <div class="input-wrapper">
+              <i class="ph ph-envelope-simple input-icon"></i>
+              <input type="text" id="username" class="input-field" placeholder="Enter your username" required>
+            </div>
+          </div>
+
+          <div class="input-group">
+            <label for="password">Password</label>
+            <div class="input-wrapper">
+              <i class="ph ph-lock-key input-icon"></i>
+              <input type="password" id="password" class="input-field" placeholder="Enter your password" required>
+              <i class="ph ph-eye-slash" id="toggle-password" style="position: absolute; right: 16px; top: 50%; transform: translateY(-50%); color: var(--landing-text-muted); cursor: pointer; font-size: 1.2rem;"></i>
+            </div>
+          </div>
+
+          <button type="submit" class="btn-primary" style="margin-top: 32px;">
+            <i class="ph ph-sign-in"></i> Login
+          </button>
+        </form>
+      </div>
+
+      <div class="footer-text">
+        <i class="ph-fill ph-shield-check" style="color: var(--landing-primary);"></i>
+        Your data is safe and secure with us.
+      </div>
+    </div>
+  </main>
+
+  <script src="js/login.js"></script>
+</body>
+</html>
