@@ -41,7 +41,8 @@ const app = {
     const logoutBtn = document.getElementById('logout-btn');
     if (logoutBtn) {
       logoutBtn.addEventListener('click', () => {
-        window.location.href = 'login.html';
+        localStorage.removeItem('isLoggedIn');
+        window.location.replace('login.html');
       });
     }
 
