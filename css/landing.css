@@ -20,7 +20,7 @@
 body {
   font-family: 'Outfit', sans-serif;
   background-color: var(--landing-bg);
-  background-size: cover;
+  background-size: 100vw 100vh;
   background-position: center;
   background-attachment: fixed;
   color: var(--landing-text);
