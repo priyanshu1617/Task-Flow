@@ -636,6 +636,11 @@
   border-color: var(--primary-color);
 }
 
+select.form-control option {
+  background-color: var(--bg-main);
+  color: var(--text-primary);
+}
+
 .form-row {
   display: grid;
   grid-template-columns: 1fr 1fr;
