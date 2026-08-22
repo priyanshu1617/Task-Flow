@@ -377,9 +377,25 @@
           </div>
         </div>
 
-        <!-- Blank Space for Future Content -->
-        <div class="profile-blank-space" style="flex: 1; min-height: 500px; border: 1px dashed var(--border-color); border-radius: var(--radius-md); display: flex; align-items: center; justify-content: center; background: rgba(0,0,0,0.05); color: var(--text-muted);">
-          <span>[ Reserved for Future Stats & Integrations ]</span>
+        <!-- Diary Section -->
+        <div class="diary-container" id="diary-container">
+          <div class="diary-header">
+            <button class="icon-btn" id="diary-prev-day"><i class="ph-bold ph-caret-left"></i></button>
+            <div class="diary-date-display" style="position: relative; cursor: pointer;" title="Select a date" onclick="try { document.getElementById('diary-date-picker').showPicker(); } catch(e) {}">
+              <i class="ph ph-calendar-blank"></i>
+              <span id="diary-current-date">Today, 22 Aug 2026</span>
+              <input type="date" id="diary-date-picker" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0; cursor: pointer;" />
+            </div>
+            <button class="icon-btn" id="diary-next-day" disabled><i class="ph-bold ph-caret-right"></i></button>
+          </div>
+          <div class="diary-book">
+            <div class="diary-page" id="diary-page-container">
+              <div class="diary-editor-wrapper">
+                <div id="diary-line-numbers">1</div>
+                <textarea id="diary-textarea" placeholder="Dear diary, today I..."></textarea>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -391,6 +407,7 @@
   <script src="js/calendar.js"></script>
   <script src="js/dashboard.js"></script>
   <script src="js/timer.js"></script>
+  <script src="js/diary.js"></script>
   <script src="js/app.js"></script>
 </body>
 </html>

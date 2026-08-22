@@ -20,6 +20,7 @@ const app = {
 
     // 3. Init Widgets
     if (typeof TimeWidget !== 'undefined') TimeWidget.init();
+    if (typeof Diary !== 'undefined') Diary.init();
 
     // 4. Bind Events
     app.bindEvents();

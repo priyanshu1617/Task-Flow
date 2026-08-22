@@ -11,6 +11,7 @@ A beautiful and modern daily checklist application built to help you organize yo
 - **Data Persistence**: All your tasks, custom categories, and theme settings are saved securely in your browser's local storage.
 - **Task Management**: Add, complete, and delete tasks. Completed tasks can be filtered out or managed across multiple dynamic categories.
 - **Reminders**: Set specific times and reminder alerts for your important tasks. You'll receive in-app toast notifications.
+- **Daily Diary**: A beautifully styled, interactive diary notebook inside your profile modal. Features ruled pages with automatic line numbering, date-based navigation, page-flipping animations, and auto-saving via LocalStorage.
 
 ## Live Demo & Authentication
 

@@ -23,5 +23,14 @@ const Storage = {
 
   saveCategories: (categories) => {
     localStorage.setItem('taskflow_categories', JSON.stringify(categories));
+  },
+
+  getDiaryEntries: () => {
+    const entries = localStorage.getItem('taskflow_diary');
+    return entries ? JSON.parse(entries) : {};
+  },
+
+  saveDiaryEntries: (entries) => {
+    localStorage.setItem('taskflow_diary', JSON.stringify(entries));
   }
 };
